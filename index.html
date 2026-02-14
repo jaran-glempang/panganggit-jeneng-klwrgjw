@@ -18,24 +18,21 @@
             
             /* Teknik Tiling: Gambar asli diulang, halftone di atasnya */
             background-image: 
-                radial-gradient(circle, rgba(0,0,0,0.15) 15%, transparent 16%), /* Efek halftone */
+                radial-gradient(circle, rgba(0,0,0,0.15) 15%, transparent 16%), 
                 url('https://upload.wikimedia.org/wikipedia/commons/0/07/COLLECTIE_TROPENMUSEUM_Een_dorpsfeest_in_de_omgeving_van_de_berg_Arjuna_TMnr_3728-709.jpg');
             
-            /* Gambar tidak diperbesar (sesuai ukuran aslinya) */
             background-size: 3px 3px, auto; 
-            /* Mengulang gambar ke seluruh area layar */
             background-repeat: repeat, repeat; 
-            
             position: relative;
             font-family: 'Lora', serif;
         }
 
-        /* Overlay untuk kontrol kejelasan */
+        /* Overlay untuk kontrol kejelasan background */
         body::before {
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(242, 242, 242, 0.6); /* Lebih pudar agar gambar terlihat */
+            background: rgba(242, 242, 242, 0.6); 
             z-index: -1;
         }
 
@@ -156,8 +153,8 @@
             "suro", "ronggo", "sasro", "purwo", "cokro", "lembu", "paku", 
             "bayu", "noto", "wrekso", "sindu", "yoso", "sudiro", "prayu", 
             "cipto", "hadi", "haryo", "pramu", "pamong", "sani", "narto", 
-            "broto", "MARTO", "jati", "midera", "sujar", "dirgo", "jiwa", 
-            "joyo" 
+            "broto", "MARTO", "jati", "midera", "sujar", "dirgo", "jiwa",
+            "joyo"
         ];
 
         const namaBelakang = [
@@ -171,13 +168,15 @@
             "BINANG", "WIJOYO", "DARMOJO", "WALUYO", "SUWIRYO", "GAYATRI", 
             "BROTO", "RETNO", "WINOTO", "SUMANTRO", "PRANOTO", "AMISENO", 
             "LAKSITO", "SUMARTO", "WIGATI", "priansari", "wijatmoko", 
-            "lastri", "wanto", "martono", "dono", "wardono", "somo" 
+            "lastri", "wanto", "martono", "dono", "wardono", "somo"
         ];
 
         const randomDepan = namaDepan[Math.floor(Math.random() * namaDepan.length)];
         const randomBelakang = namaBelakang[Math.floor(Math.random() * namaBelakang.length)];
 
-        let hasilGabungan = `${randomDepan}${randomBelakang}`;
+        let hasilGabungan = randomDepan + randomBelakang;
+        
+        // Logika kapitalisasi: Huruf pertama besar, sisanya kecil
         let hasilFinal = hasilGabungan.charAt(0).toUpperCase() + hasilGabungan.slice(1).toLowerCase();
         
         document.getElementById("result").innerText = hasilFinal;
