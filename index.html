@@ -87,6 +87,7 @@
             align-items: center;
             justify-content: center;
             letter-spacing: -1px;
+            word-wrap: break-word;
         }
 
         button { 
@@ -141,34 +142,38 @@
 
 <script>
     function generateName() {
-        // Daftar Nama Depan (Sudah diperbaiki komanya)
+        // Daftar Nama Depan
         const namaDepan = [
-            "mangun", "mangku", "wojo", "ambar", "setyo", "PADMO", "WEDYO", 
+            "mangun", "mangku", "wojo", "ambar", "setyo", "padmo", "wedyo", 
             "puspo", "sastro", "pringgo", "citro", "sekar", "ranu", "danu", 
             "aryo", "arum", "tirto", "suryo", "santa", "karto", "wigyo", 
             "suro", "ronggo", "sasro", "purwo", "cokro", "lembu", "paku", 
             "bayu", "noto", "wrekso", "sindu", "yoso", "sudiro", "prayu", 
             "cipto", "hadi", "haryo", "pramu", "pamong", "sani", "narto", 
-            "broto", "MARTO", "jati", "midera", "dirgo", "jiwa", "joyo", "tejo", "pandu", "atmo"
+            "broto", "marto", "jati", "midera", "dirgo", "jiwa", "joyo", "tejo", "pandu", "atmo"
         ];
 
-        // Daftar Nama Belakang (Sudah dirapikan)
+        // Daftar Nama Belakang
         const namaBelakang = [
-            "ATMOJO", "KUSUMO", "SENTIKO", "HUSODO", "DIKROMO", "NINGRUM", 
-            "NINGTYAS", "MENTARAM", "DIPURO", "PASUTI", "TENOYO", "PRATI", 
-            "DATI", "DARSONO", "ANGGORO", "UTOMO", "UTAMI", "WIRATMO", 
-            "WIRONO", "SADEWO", "NEGARAN", "TYASO", "PRADOTO", "PAWITRO", 
-            "PASUWIRYO", "MUSTHIKO", "SUYATNO", "SANGKOYO", "SARSADI", 
-            "PUSPITO", "SUGONDO", "SUWANTO", "DIRJO", "DARMO", "SUROTO", 
-            "YUDO", "PRATOMO", "WENING", "LESMI", "BINANG", "WIJOYO", "DARMOJO", "WALUYO", "SUWIRYO", "GAYATRI", 
-            "BROTO", "RETNO", "WINOTO", "SUMANTRO", "PRANOTO", "AMISENO", 
-            "LAKSITO", "SUMARTO", "WIGATI", "priansari", "wijatmoko", 
+            "atmojo", "kusumo", "sentiko", "husodo", "dikromo", "ningrum", 
+            "ningtyas", "mentaram", "dipuro", "pasuti", "tenoyo", "prati", 
+            "dati", "darsono", "anggoro", "utomo", "utami", "wiratmo", 
+            "wirono", "sadewo", "negaran", "tyaso", "pradoto", "pawitro", 
+            "pasuwiryo", "musthiko", "suyatno", "sangkoyo", "sarsadi", 
+            "puspito", "sugondo", "suwanto", "dirjo", "darmo", "suroto", 
+            "yudo", "pratomo", "wening", "lesmi", "binang", "wijoyo", "darmojo", "waluyo", "suwiryo", "gayatri", 
+            "broto", "retno", "winoto", "sumantro", "pranoto", "amiseno", 
+            "laksito", "sumarto", "wigati", "priansari", "wijatmoko", 
             "lastri", "wanto", "martono", "dono", "wardono", "somo", "bayu", "widagdo", "waskito", "warsito", "mudyo", "seno", "winangun"
         ];
 
-        // Logika acak
-        const randomDepan = namaDepan[Math.floor(Math.random() * namaDepan.length)];
-        const randomBelakang = namaBelakang[Math.floor(Math.random() * namaBelakang.length)];
+        let randomDepan, randomBelakang;
+
+        // Logika untuk memastikan nama depan dan belakang berbeda
+        do {
+            randomDepan = namaDepan[Math.floor(Math.random() * namaDepan.length)];
+            randomBelakang = namaBelakang[Math.floor(Math.random() * namaBelakang.length)];
+        } while (randomDepan.toLowerCase() === randomBelakang.toLowerCase());
 
         // Gabung dan Format (Kapital di depan saja)
         const hasilGabungan = randomDepan + randomBelakang;
