@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panganggit Jeneng Kulawarga Jawa</title>
     <style>
-        /* Menggunakan font Inter untuk kesan modern dan bersih */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        /* Menggunakan font Inter untuk kesan modern, bersih, dan tech-oriented */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
         body { 
             margin: 0;
@@ -15,77 +15,93 @@
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
-            background-color: #f4f4f7;
+            background-color: #f9fafb;
             font-family: 'Inter', sans-serif;
-            color: #333;
+            color: #111827;
         }
 
         .card { 
             background: #ffffff;
-            padding: 2.5rem; 
-            border-radius: 16px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+            padding: 3rem; 
+            border-radius: 24px; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
             text-align: center; 
-            width: 500px; 
+            width: 520px; 
             max-width: 90%;
-            border: 1px solid #eee;
+            border: 1px solid #f3f4f6;
         }
 
         h2 { 
-            font-weight: 700;
-            color: #111; 
-            margin: 0 0 0.5rem 0; 
-            font-size: 1.5rem;
-            letter-spacing: -0.5px;
+            font-weight: 800;
+            color: #111827; 
+            margin: 0 0 0.75rem 0; 
+            font-size: 1.75rem;
+            letter-spacing: -0.025em;
         }
 
-        .subtitle { 
-            color: #777; 
-            font-size: 0.95rem; 
-            margin-bottom: 2rem;
-            font-weight: 400;
+        .description-en { 
+            color: #6b7280; 
+            font-size: 0.9rem; 
+            line-height: 1.5;
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         #result { 
-            font-size: 2rem; 
-            font-weight: 600; 
+            font-size: 2.25rem; 
+            font-weight: 700; 
             color: #000; 
-            margin: 30px 0; 
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 12px;
-            letter-spacing: -0.5px;
+            margin: 2rem 0; 
+            padding: 2.5rem 1.5rem;
+            background: #f3f4f6;
+            border-radius: 16px;
+            letter-spacing: -0.02em;
             word-wrap: break-word;
+            min-height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
 
         button { 
-            background: #111; 
-            color: white; 
+            background: #111827; 
+            color: #ffffff; 
             border: none; 
-            padding: 14px 30px; 
-            border-radius: 8px; 
+            padding: 1rem 2.5rem; 
+            border-radius: 12px; 
             cursor: pointer; 
             font-size: 1rem; 
-            font-family: 'Inter', sans-serif;
             font-weight: 600;
-            transition: background 0.2s;
+            transition: all 0.2s;
+            width: 100%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
         button:hover { 
-            background: #444; 
+            background: #374151;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
         }
 
         .footer-note {
-            margin-top: 2rem;
-            font-size: 0.75rem;
-            color: #aaa;
+            margin-top: 2.5rem;
+            font-size: 0.7rem;
+            color: #9ca3af;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 0.1em;
+            font-weight: 500;
         }
 
         @media (max-width: 600px) {
-            .card { padding: 1.5rem; }
-            #result { font-size: 1.6rem; }
+            .card { padding: 2rem 1.5rem; }
+            h2 { font-size: 1.4rem; }
+            #result { font-size: 1.75rem; }
         }
     </style>
 </head>
@@ -93,18 +109,20 @@
 
 <div class="card">
     <h2>Panganggit Jeneng Kulawarga Jawa</h2>
-    <div class="subtitle">papan kanggo nggolek jeneng jawa kadya para priyayi</div>
+    
+    <div class="description-en">
+        An aesthetic generator for Javanese family names, inspired by the noble "Priyayi" lineage and classical linguistic structures.
+    </div>
     
     <div id="result">---</div>
     
-    <button onclick="generateName()">Anggit Jeneng</button>
+    <button onclick="generateName()">Generate Name</button>
     
-    <div class="footer-note">Generator nama keluarga jawa</div>
+    <div class="footer-note">Cultural Name Generator System</div>
 </div>
 
 <script>
     function generateName() {
-        // Daftar Nama Depan
         const namaDepan = [
             "mangun", "mangku", "wojo", "ambar", "setyo", "padmo", "wedyo", 
             "puspo", "sastro", "pringgo", "citro", "sekar", "ranu", "danu", 
@@ -112,11 +130,10 @@
             "suro", "ronggo", "sasro", "purwo", "cokro", "lembu", "paku", 
             "bayu", "noto", "wrekso", "sindu", "yoso", "sudiro", "prayu", 
             "cipto", "hadi", "haryo", "pramu", "pamong", "sani", "narto",
-            "broto", "marto", "jati", "midera", "dirgo", "jiwa", "joyo", "tejo", "pandu", "atmo", "wiro", "padmo", "dipo",
-            "purbo", "kresno", "merto", "cahyo", "wongso", "yomo", "danu"
+            "broto", "marto", "jati", "midera", "dirgo", "jiwa", "joyo", "tejo", "pandu", "atmo", "wiro", "dipo",
+            "purbo", "kresno", "merto", "cahyo", "wongso", "yomo"
         ];
 
-        // Daftar Nama Belakang
         const namaBelakang = [
             "atmojo", "kusumo", "sentiko", "husodo", "dikromo", "ningrum", 
             "ningtyas", "mentaram", "dipuro", "pasuti", "tenoyo", "prati", 
@@ -125,27 +142,29 @@
             "pasuwiryo", "musthiko", "suyatno", "sangkoyo", "sarsadi", 
             "puspito", "sugondo", "suwanto", "dirjo", "darmo", "suroto", 
             "yudo", "pratomo", "wening", "lesmi", "binang", "wijoyo", "darmojo", "waluyo", "suwiryo", "gayatri", 
-            "broto", "retno", "winoto", "sumantro", "pranoto", "amiseno", 
+            "retno", "winoto", "sumantro", "pranoto", "amiseno", 
             "laksito", "sumarto", "wigati", "priansari", "wijatmoko", 
-            "lastri", "wanto", "martono", "dono", "wardono", "somo", "bayu", "widagdo", "waskito", "warsito", "mudyo", "seno", "winangun", "alam", "digdo",
+            "lastri", "wanto", "martono", "dono", "wardono", "somo", "widagdo", "waskito", "warsito", "mudyo", "seno", "winangun", "alam", "digdo",
             "waseso", "wiryo", "setro", "wardoyo", "dilogo", "kuncoro", "karyo", "projo",
-            "wibowo", "hadi", "siswo", "amijoyo", "direjo", "yuwono", "loyo", "widuro", "seno", "amijoyo"
+            "wibowo", "hadi", "siswo", "amijoyo", "direjo", "yuwono", "loyo", "widuro"
         ];
 
         let randomDepan, randomBelakang;
 
-        // Logika untuk memastikan nama depan dan belakang berbeda
         do {
             randomDepan = namaDepan[Math.floor(Math.random() * namaDepan.length)];
             randomBelakang = namaBelakang[Math.floor(Math.random() * namaBelakang.length)];
         } while (randomDepan.toLowerCase() === randomBelakang.toLowerCase());
 
-        // Gabung dan Format (Kapital di depan saja)
-        const hasilGabungan = randomDepan + randomBelakang;
-        const hasilFinal = hasilGabungan.charAt(0).toUpperCase() + hasilGabungan.slice(1).toLowerCase();
+        // Simple Sandhi Rule: If first word ends with 'o' and second starts with 'a', merge them
+        let combined = randomDepan + randomBelakang;
+        if (randomDepan.endsWith('o') && randomBelakang.startsWith('a')) {
+            combined = randomDepan.slice(0, -1) + randomBelakang;
+        }
+
+        const finalResult = combined.charAt(0).toUpperCase() + combined.slice(1).toLowerCase();
         
-        // Tampilkan hasil
-        document.getElementById("result").innerText = hasilFinal;
+        document.getElementById("result").innerText = finalResult;
     }
 </script>
 
