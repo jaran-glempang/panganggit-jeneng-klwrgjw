@@ -15,35 +15,63 @@
             justify-content: center; 
             align-items: center; 
             min-height: 100vh; 
-            background-color: #f9fafb;
-            font-family: 'Inter', sans-serif;
-            color: #111827;
+            background-color: #f2f2f2;
+            /* Background awal dikembalikan */
+            background-image: 
+                radial-gradient(circle, rgba(0,0,0,0.15) 15%, transparent 16%), 
+                url('https://upload.wikimedia.org/wikipedia/commons/0/07/COLLECTIE_TROPENMUSEUM_Een_dorpsfeest_in_de_omgeving_van_de_berg_Arjuna_TMnr_3728-709.jpg');
+            background-size: 3px 3px, cover; 
+            background-repeat: repeat, no-repeat; 
+            background-position: center;
+            position: relative;
+            font-family: 'Inter', sans-serif; /* Font Modern */
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(242, 242, 242, 0.7); /* Overlay untuk kontras */
+            z-index: -1;
         }
 
         .card { 
-            background: #ffffff;
-            padding: 3rem; 
-            border-radius: 24px; 
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            background: rgba(255, 255, 255, 0.95); 
+            backdrop-filter: blur(8px); 
+            padding: 3.5rem; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
             text-align: center; 
-            width: 520px; 
+            width: 550px; 
             max-width: 90%;
-            border: 1px solid #f3f4f6;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
+
+        .ulir {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            color: #b0b0b0;
+            opacity: 0.5;
+        }
+        .top-left { top: 15px; left: 15px; border-top: 2px solid; border-left: 2px solid; border-radius: 40px 0 0 0; }
+        .top-right { top: 15px; right: 15px; border-top: 2px solid; border-right: 2px solid; border-radius: 0 40px 0 0; }
+        .bottom-left { bottom: 15px; left: 15px; border-bottom: 2px solid; border-left: 2px solid; border-radius: 0 0 0 40px; }
+        .bottom-right { bottom: 15px; right: 15px; border-bottom: 2px solid; border-right: 2px solid; border-radius: 0 0 40px 0; }
 
         h2 { 
             font-weight: 800;
             color: #111827; 
-            margin: 0 0 0.75rem 0; 
+            margin-bottom: 0.5rem; 
             font-size: 1.75rem;
             letter-spacing: -0.025em;
         }
 
         .description-en { 
             color: #6b7280; 
-            font-size: 0.9rem; 
+            font-size: 0.95rem; 
             line-height: 1.5;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             max-width: 90%;
             margin-left: auto;
             margin-right: auto;
@@ -55,7 +83,7 @@
             color: #000; 
             margin: 2rem 0; 
             padding: 2.5rem 1.5rem;
-            background: #f3f4f6;
+            background: rgba(0,0,0,0.03);
             border-radius: 16px;
             letter-spacing: -0.02em;
             word-wrap: break-word;
@@ -63,12 +91,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         button { 
             background: #111827; 
-            color: #ffffff; 
+            color: white; 
             border: none; 
             padding: 1rem 2.5rem; 
             border-radius: 12px; 
@@ -77,16 +105,12 @@
             font-weight: 600;
             transition: all 0.2s;
             width: 100%;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         button:hover { 
-            background: #374151;
+            background: #374151; 
             transform: translateY(-1px);
-        }
-
-        button:active {
-            transform: translateY(0);
         }
 
         .footer-note {
@@ -99,7 +123,7 @@
         }
 
         @media (max-width: 600px) {
-            .card { padding: 2rem 1.5rem; }
+            .card { padding: 2rem; }
             h2 { font-size: 1.4rem; }
             #result { font-size: 1.75rem; }
         }
@@ -108,10 +132,15 @@
 <body>
 
 <div class="card">
+    <div class="ulir top-left"></div>
+    <div class="ulir top-right"></div>
+    <div class="ulir bottom-left"></div>
+    <div class="ulir bottom-right"></div>
+
     <h2>Panganggit Jeneng Kulawarga Jawa</h2>
     
     <div class="description-en">
-        An aesthetic generator for Javanese family names, inspired by the noble "Priyayi" lineage and classical linguistic structures.
+        A generator for Javanese family names, inspired by the noble "Priyayi" lineage and classical linguistic structures.
     </div>
     
     <div id="result">---</div>
