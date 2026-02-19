@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panganggit Jeneng Kulawarga Jawa</title>
     <style>
-        /* Menggunakan font Inter untuk kesan modern dan bersih */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
         body { 
@@ -92,6 +91,7 @@
             align-items: center;
             justify-content: center;
             border: 1px solid rgba(0,0,0,0.05);
+            transition: opacity 0.2s ease;
         }
 
         button { 
@@ -126,12 +126,6 @@
         .footer-note a {
             color: #4b5563;
             text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-note a:hover {
-            color: #111827;
-            text-decoration: underline;
         }
 
         @media (max-width: 600px) {
@@ -173,10 +167,10 @@
             "suro", "ronggo", "sasro", "purwo", "cokro", "lembu", "paku", 
             "bayu", "noto", "wrekso", "sindu", "yoso", "sudiro", "prayu", 
             "cipto", "hadi", "haryo", "pramu", "pamong", "sani", "narto",
-            "broto", "marto", "jati", "midera", "dirgo", "jiwa", "joyo", "tejo", "pandu", "atmo", "wiro", "dipo",
-            "purbo", "kresno", "merto", "cahyo", "wongso", "yomo", "panoto",
-            "rekso", "gondo", "darko", "hando", "bodro", "arung", "prawoto",
-            "projo", "darmo", "budi"
+            "broto", "marto", "jati", "midera", "dirgo", "jiwa", "joyo", "tejo", 
+            "pandu", "atmo", "wiro", "dipo", "purbo", "kresno", "merto", "cahyo", 
+            "wongso", "yomo", "panoto", "rekso", "gondo", "darko", "hando", 
+            "bodro", "arung", "prawoto", "projo", "darmo", "budi"
         ];
 
         const namaBelakang = [
@@ -186,32 +180,43 @@
             "wirono", "sadewo", "negaran", "tyaso", "pradoto", "pawitro", 
             "pasuwiryo", "musthiko", "suyatno", "sangkoyo", "sarsadi", 
             "puspito", "sugondo", "suwanto", "dirjo", "darmo", "suroto", 
-            "yudo", "pratomo", "wening", "lesmi", "binang", "wijoyo", "darmojo", "waluyo", "suwiryo", "gayatri", 
-            "retno", "winoto", "sumantro", "pranoto", "amiseno", 
-            "laksito", "sumarto", "wigati", "priansari", "wijatmoko", 
-            "lastri", "wanto", "martono", "dono", "wardono", "somo", "widagdo", "waskito", "warsito", "mudyo", "seno", "winangun", "alam", "digdo",
-            "waseso", "wiryo", "setro", "wardoyo", "dilogo", "kuncoro", "karyo", "projo",
-            "wibowo", "hadi", "siswo", "amijoyo", "direjo", "yuwono", "loyo", "widuro",
-            "suwandito", "siwojo", "padmoyo", "hantoro", "darmanto", "mono", "yumono", "nolo",
-            "dibyo", "sudibyo", "harjo", "purwoko", "sudarto", "miharjo", "winarso",
-            "wihastuti", "diwijo", "wilojo", "santi", "kartiyasa"
-            
+            "yudo", "pratomo", "wening", "lesmi", "binang", "wijoyo", "darmojo", 
+            "waluyo", "suwiryo", "gayatri", "retno", "winoto", "sumantro", 
+            "pranoto", "amiseno", "laksito", "sumarto", "wigati", "priansari", 
+            "wijatmoko", "lastri", "wanto", "martono", "dono", "wardono", 
+            "somo", "widagdo", "waskito", "warsito", "mudyo", "seno", "winangun", 
+            "alam", "digdo", "waseso", "wiryo", "setro", "wardoyo", "dilogo", 
+            "kuncoro", "karyo", "projo", "wibowo", "hadi", "siswo", "amijoyo", 
+            "direjo", "yuwono", "loyo", "widuro", "suwandito", "siwojo", 
+            "padmoyo", "hantoro", "darmanto", "mono", "yumono", "nolo", 
+            "dibyo", "sudibyo", "harjo", "purwoko", "sudarto", "miharjo", 
+            "winarso", "wihastuti", "diwijo", "wilojo", "santi", "kartiyasa"
         ];
 
-        let randomDepan, randomBelakang;
+        let randomDepan = namaDepan[Math.floor(Math.random() * namaDepan.length)];
+        let randomBelakang = namaBelakang[Math.floor(Math.random() * namaBelakang.length)];
 
-        do {
-            randomDepan = namaDepan[Math.floor(Math.random() * namaDepan.length)];
-            randomBelakang = namaBelakang[Math.floor(Math.random() * namaBelakang.length)];
-        } while (randomDepan.toLowerCase() === randomBelakang.toLowerCase());
+        // Hindari nama depan dan belakang yang persis sama
+        if (randomDepan === randomBelakang) {
+            randomBelakang = namaBelakang[(Math.floor(Math.random() * namaBelakang.length) + 1) % namaBelakang.length];
+        }
 
         let combined = randomDepan + randomBelakang;
+
+        // Aturan Sandhisutro sederhana: jika akhiran 'o' bertemu awalan 'a', lebur jadi satu
         if (randomDepan.endsWith('o') && randomBelakang.startsWith('a')) {
             combined = randomDepan.slice(0, -1) + randomBelakang;
         }
 
         const finalResult = combined.charAt(0).toUpperCase() + combined.slice(1).toLowerCase();
-        document.getElementById("result").innerText = finalResult;
+        
+        const resultDiv = document.getElementById("result");
+        resultDiv.style.opacity = 0;
+        
+        setTimeout(() => {
+            resultDiv.innerText = finalResult;
+            resultDiv.style.opacity = 1;
+        }, 100);
     }
 </script>
 
