@@ -8,215 +8,85 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
         body { 
-            margin: 0;
-            padding: 0;
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            min-height: 100vh; 
-            background-color: #f2f2f2;
-            background-image: 
-                radial-gradient(circle, rgba(0,0,0,0.15) 15%, transparent 16%), 
+            margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; background-color: #f2f2f2;
+            background-image: radial-gradient(circle, rgba(0,0,0,0.15) 15%, transparent 16%), 
                 url('https://upload.wikimedia.org/wikipedia/commons/0/07/COLLECTIE_TROPENMUSEUM_Een_dorpsfeest_in_de_omgeving_van_de_berg_Arjuna_TMnr_3728-709.jpg');
-            background-size: 3px 3px, cover; 
-            background-repeat: repeat, no-repeat; 
-            background-position: center;
-            position: relative;
-            font-family: 'Inter', sans-serif;
+            background-size: 3px 3px, cover; background-repeat: repeat, no-repeat; background-position: center;
+            position: relative; font-family: 'Inter', sans-serif;
         }
 
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(242, 242, 242, 0.7);
-            z-index: -1;
-        }
+        body::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(242, 242, 242, 0.7); z-index: -1; }
 
         .card { 
-            background: rgba(255, 255, 255, 0.95); 
-            backdrop-filter: blur(8px); 
-            padding: 3.5rem; 
-            border-radius: 24px; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
-            text-align: center; 
-            width: 550px; 
-            max-width: 90%;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            position: relative;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); padding: 3.5rem; 
+            border-radius: 24px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); text-align: center; 
+            width: 550px; max-width: 90%; border: 1px solid rgba(255, 255, 255, 0.3); position: relative;
         }
 
-        .ulir {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            color: #b0b0b0;
-            opacity: 0.5;
-        }
+        .ulir { position: absolute; width: 60px; height: 60px; color: #b0b0b0; opacity: 0.5; }
         .top-left { top: 15px; left: 15px; border-top: 2px solid; border-left: 2px solid; border-radius: 40px 0 0 0; }
         .top-right { top: 15px; right: 15px; border-top: 2px solid; border-right: 2px solid; border-radius: 0 40px 0 0; }
         .bottom-left { bottom: 15px; left: 15px; border-bottom: 2px solid; border-left: 2px solid; border-radius: 0 0 0 40px; }
         .bottom-right { bottom: 15px; right: 15px; border-bottom: 2px solid; border-right: 2px solid; border-radius: 0 0 40px 0; }
 
-        h2 { 
-            font-weight: 800;
-            color: #111827; 
-            margin-bottom: 0.75rem; 
-            font-size: 1.75rem;
-            letter-spacing: -0.025em;
-        }
+        h2 { font-weight: 800; color: #111827; margin-bottom: 0.75rem; font-size: 1.75rem; letter-spacing: -0.025em; }
 
-        .description-en { 
-            color: #6b7280; 
-            font-size: 0.95rem; 
-            line-height: 1.5;
-            margin-bottom: 3rem;
-            max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+        .description-en { color: #6b7280; font-size: 0.95rem; line-height: 1.5; margin-bottom: 3rem; }
 
         #result { 
-            font-size: 2.25rem; 
-            font-weight: 700; 
-            color: #000; 
-            margin: 2rem 0; 
-            padding: 2.5rem 1.5rem;
-            background: rgba(0,0,0,0.03);
-            border-radius: 16px;
-            letter-spacing: -0.02em;
-            word-wrap: break-word;
-            min-height: 3.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: opacity 0.2s ease;
+            font-size: 2rem; font-weight: 700; color: #000; margin: 2rem 0; padding: 2.5rem 1.5rem;
+            background: rgba(0,0,0,0.03); border-radius: 16px; letter-spacing: -0.02em;
+            word-wrap: break-word; min-height: 3.5rem; display: flex; align-items: center;
+            justify-content: center; border: 1px solid rgba(0,0,0,0.05);
+            /* Transisi dihapus */
         }
 
         button { 
-            background: #111827; 
-            color: white; 
-            border: none; 
-            padding: 1rem 2.5rem; 
-            border-radius: 12px; 
-            cursor: pointer; 
-            font-size: 1rem; 
-            font-weight: 600;
-            transition: all 0.2s;
-            width: 100%;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-family: 'Inter', sans-serif;
+            background: #111827; color: white; border: none; padding: 1rem 2.5rem; 
+            border-radius: 12px; cursor: pointer; font-size: 1rem; font-weight: 600;
+            transition: all 0.2s; width: 100%; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        button:hover { 
-            background: #374151; 
-            transform: translateY(-1px);
-        }
+        button:hover { background: #374151; transform: translateY(-1px); }
 
-        .footer-note {
-            margin-top: 2.5rem;
-            font-size: 0.75rem;
-            color: #9ca3af;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-weight: 600;
-        }
-
-        .footer-note a {
-            color: #4b5563;
-            text-decoration: none;
-        }
-
-        @media (max-width: 600px) {
-            .card { padding: 2.5rem 1.5rem; }
-            h2 { font-size: 1.4rem; }
-            #result { font-size: 1.75rem; }
-        }
+        .footer-note { margin-top: 2.5rem; font-size: 0.75rem; color: #9ca3af; text-transform: uppercase; font-weight: 600; }
+        .footer-note a { color: #4b5563; text-decoration: none; }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <div class="ulir top-left"></div>
-    <div class="ulir top-right"></div>
-    <div class="ulir bottom-left"></div>
-    <div class="ulir bottom-right"></div>
+    <div class="ulir top-left"></div><div class="ulir top-right"></div>
+    <div class="ulir bottom-left"></div><div class="ulir bottom-right"></div>
 
-    <h2>Panganggit Jeneng Kulawarga Jawa</h2>
-    
-    <div class="description-en">
-        A generator for Javanese family names, inspired by the noble "Priyayi" lineage and classical linguistic structures.
-    </div>
+    <h2>Panganggit Jeneng</h2>
+    <div class="description-en">Generate Javanese family names.</div>
     
     <div id="result">---</div>
     
     <button onclick="generateName()">Generate Name</button>
     
-    <div class="footer-note">
-        Made by <a href="https://x.com/NetflixJW" target="_blank">@NetflixJW</a>
-    </div>
+    <div class="footer-note">Made by <a href="https://x.com/NetflixJW" target="_blank">@NetflixJW</a></div>
 </div>
 
 <script>
+    function capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    }
+
     function generateName() {
-        const namaDepan = [
-            "mangun", "mangku", "wojo", "ambar", "setyo", "padmo", "wedyo", 
-            "puspo", "sastro", "pringgo", "citro", "sekar", "ranu", "danu", 
-            "aryo", "arum", "tirto", "suryo", "santa", "karto", "wigyo", 
-            "suro", "ronggo", "sasro", "purwo", "cokro", "lembu", "paku", 
-            "bayu", "noto", "wrekso", "sindu", "yoso", "sudiro", "prayu", 
-            "cipto", "hadi", "haryo", "pramu", "pamong", "sani", "narto",
-            "broto", "marto", "jati", "midera", "dirgo", "jiwa", "joyo", "tejo", 
-            "pandu", "atmo", "wiro", "dipo", "purbo", "kresno", "merto", "cahyo", 
-            "wongso", "yomo", "panoto", "rekso", "gondo", "darko", "hando", 
-            "bodro", "arung", "prawoto", "projo", "darmo", "budi"
-        ];
+        const namaDepan = ["mangun", "mangku", "wojo", "ambar", "setyo", "padmo", "wedyo", "puspo", "sastro", "pringgo", "citro", "sekar", "ranu", "danu", "aryo", "arum", "tirto", "suryo", "santa", "karto", "wigyo", "suro", "ronggo", "sasro", "purwo", "cokro", "lembu", "paku", "bayu", "noto", "wrekso", "sindu", "yoso", "sudiro", "prayu", "cipto", "hadi", "haryo", "pramu", "pamong", "sani", "narto", "broto", "marto", "jati", "midera", "dirgo", "jiwa", "joyo", "tejo", "pandu", "atmo", "wiro", "dipo", "purbo", "kresno", "merto", "cahyo", "wongso", "yomo", "panoto", "rekso", "gondo", "darko", "hando", "bodro", "arung", "prawoto", "projo", "darmo", "budi"];
+        const namaBelakang = ["atmojo", "kusumo", "sentiko", "husodo", "dikromo", "ningrum", "ningtyas", "mentaram", "dipuro", "pasuti", "tenoyo", "prati", "dati", "darsono", "anggoro", "utomo", "utami", "wiratmo", "wirono", "sadewo", "negaran", "tyaso", "pradoto", "pawitro", "pasuwiryo", "musthiko", "suyatno", "sangkoyo", "sarsadi", "puspito", "sugondo", "suwanto", "dirjo", "darmo", "suroto", "yudo", "pratomo", "wening", "lesmi", "binang", "wijoyo", "darmojo", "waluyo", "suwiryo", "gayatri", "retno", "winoto", "sumantro", "pranoto", "amiseno", "laksito", "sumarto", "wigati", "priansari", "wijatmoko", "lastri", "wanto", "martono", "dono", "wardono", "somo", "widagdo", "waskito", "warsito", "mudyo", "seno", "winangun", "alam", "digdo", "waseso", "wiryo", "setro", "wardoyo", "dilogo", "kuncoro", "karyo", "projo", "wibowo", "hadi", "siswo", "amijoyo", "direjo", "yuwono", "loyo", "widuro", "suwandito", "siwojo", "padmoyo", "hantoro", "darmanto", "mono", "yumono", "nolo", "dibyo", "sudibyo", "harjo", "purwoko", "sudarto", "miharjo", "winarso", "wihastuti", "diwijo", "wilojo", "santi", "kartiyasa"];
 
-        const namaBelakang = [
-            "atmojo", "kusumo", "sentiko", "husodo", "dikromo", "ningrum", 
-            "ningtyas", "mentaram", "dipuro", "pasuti", "tenoyo", "prati", 
-            "dati", "darsono", "anggoro", "utomo", "utami", "wiratmo", 
-            "wirono", "sadewo", "negaran", "tyaso", "pradoto", "pawitro", 
-            "pasuwiryo", "musthiko", "suyatno", "sangkoyo", "sarsadi", 
-            "puspito", "sugondo", "suwanto", "dirjo", "darmo", "suroto", 
-            "yudo", "pratomo", "wening", "lesmi", "binang", "wijoyo", "darmojo", 
-            "waluyo", "suwiryo", "gayatri", "retno", "winoto", "sumantro", 
-            "pranoto", "amiseno", "laksito", "sumarto", "wigati", "priansari", 
-            "wijatmoko", "lastri", "wanto", "martono", "dono", "wardono", 
-            "somo", "widagdo", "waskito", "warsito", "mudyo", "seno", "winangun", 
-            "alam", "digdo", "waseso", "wiryo", "setro", "wardoyo", "dilogo", 
-            "kuncoro", "karyo", "projo", "wibowo", "hadi", "siswo", "amijoyo", 
-            "direjo", "yuwono", "loyo", "widuro", "suwandito", "siwojo", 
-            "padmoyo", "hantoro", "darmanto", "mono", "yumono", "nolo", 
-            "dibyo", "sudibyo", "harjo", "purwoko", "sudarto", "miharjo", 
-            "winarso", "wihastuti", "diwijo", "wilojo", "santi", "kartiyasa"
-        ];
+        let d = namaDepan[Math.floor(Math.random() * namaDepan.length)];
+        let b = namaBelakang[Math.floor(Math.random() * namaBelakang.length)];
 
-        let randomDepan = namaDepan[Math.floor(Math.random() * namaDepan.length)];
-        let randomBelakang = namaBelakang[Math.floor(Math.random() * namaBelakang.length)];
+        // Gabung langsung, tanpa check sandhi, tanpa transisi
+        let finalDisplay = capitalize(d + b);
 
-        // Hindari nama depan dan belakang yang persis sama
-        if (randomDepan === randomBelakang) {
-            randomBelakang = namaBelakang[(Math.floor(Math.random() * namaBelakang.length) + 1) % namaBelakang.length];
-        }
-
-        let combined = randomDepan + randomBelakang;
-
-        // Aturan Sandhisutro sederhana: jika akhiran 'o' bertemu awalan 'a', lebur jadi satu
-        if (randomDepan.endsWith('o') && randomBelakang.startsWith('a')) {
-            combined = randomDepan.slice(0, -1) + randomBelakang;
-        }
-
-        const finalResult = combined.charAt(0).toUpperCase() + combined.slice(1).toLowerCase();
-        
         const resultDiv = document.getElementById("result");
-        resultDiv.style.opacity = 0;
-        
-        setTimeout(() => {
-            resultDiv.innerText = finalResult;
-            resultDiv.style.opacity = 1;
-        }, 100);
+        resultDiv.innerText = finalDisplay;
     }
 </script>
 
