@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panganggit Jeneng Kulawarga Jawa</title>
     <style>
-        /* Menggunakan font Inter untuk kesan modern, bersih, dan tech-oriented */
+        /* Menggunakan font Inter untuk kesan modern dan bersih */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
         body { 
@@ -16,7 +16,6 @@
             align-items: center; 
             min-height: 100vh; 
             background-color: #f2f2f2;
-            /* Background awal dikembalikan */
             background-image: 
                 radial-gradient(circle, rgba(0,0,0,0.15) 15%, transparent 16%), 
                 url('https://upload.wikimedia.org/wikipedia/commons/0/07/COLLECTIE_TROPENMUSEUM_Een_dorpsfeest_in_de_omgeving_van_de_berg_Arjuna_TMnr_3728-709.jpg');
@@ -24,14 +23,14 @@
             background-repeat: repeat, no-repeat; 
             background-position: center;
             position: relative;
-            font-family: 'Inter', sans-serif; /* Font Modern */
+            font-family: 'Inter', sans-serif;
         }
 
         body::before {
             content: "";
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(242, 242, 242, 0.7); /* Overlay untuk kontras */
+            background: rgba(242, 242, 242, 0.7);
             z-index: -1;
         }
 
@@ -39,12 +38,13 @@
             background: rgba(255, 255, 255, 0.95); 
             backdrop-filter: blur(8px); 
             padding: 3.5rem; 
-            border-radius: 20px; 
+            border-radius: 24px; 
             box-shadow: 0 15px 40px rgba(0,0,0,0.1); 
             text-align: center; 
             width: 550px; 
             max-width: 90%;
             border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
         }
 
         .ulir {
@@ -62,7 +62,7 @@
         h2 { 
             font-weight: 800;
             color: #111827; 
-            margin-bottom: 0.5rem; 
+            margin-bottom: 0.75rem; 
             font-size: 1.75rem;
             letter-spacing: -0.025em;
         }
@@ -106,6 +106,7 @@
             transition: all 0.2s;
             width: 100%;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-family: 'Inter', sans-serif;
         }
 
         button:hover { 
@@ -115,15 +116,26 @@
 
         .footer-note {
             margin-top: 2.5rem;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: #9ca3af;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            font-weight: 500;
+            font-weight: 600;
+        }
+
+        .footer-note a {
+            color: #4b5563;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-note a:hover {
+            color: #111827;
+            text-decoration: underline;
         }
 
         @media (max-width: 600px) {
-            .card { padding: 2rem; }
+            .card { padding: 2.5rem 1.5rem; }
             h2 { font-size: 1.4rem; }
             #result { font-size: 1.75rem; }
         }
@@ -147,7 +159,9 @@
     
     <button onclick="generateName()">Generate Name</button>
     
-    <div class="footer-note">Cultural Name Generator System</div>
+    <div class="footer-note">
+        Made by <a href="https://x.com/NetflixJW" target="_blank">@NetflixJW</a>
+    </div>
 </div>
 
 <script>
@@ -185,14 +199,12 @@
             randomBelakang = namaBelakang[Math.floor(Math.random() * namaBelakang.length)];
         } while (randomDepan.toLowerCase() === randomBelakang.toLowerCase());
 
-        // Simple Sandhi Rule: If first word ends with 'o' and second starts with 'a', merge them
         let combined = randomDepan + randomBelakang;
         if (randomDepan.endsWith('o') && randomBelakang.startsWith('a')) {
             combined = randomDepan.slice(0, -1) + randomBelakang;
         }
 
         const finalResult = combined.charAt(0).toUpperCase() + combined.slice(1).toLowerCase();
-        
         document.getElementById("result").innerText = finalResult;
     }
 </script>
