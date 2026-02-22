@@ -3,76 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panganggit Jeneng Kulawarga Jawa</title>
+    <title>Panganggit Jeneng ✧ Y2K Edition</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@400;600&family=Quicksand:wght@500;700&family=Inter:wght@400;600;800&display=swap');
 
         body { 
-            margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; 
-            min-height: 100vh; background-color: #f2f2f2;
-            background-image: radial-gradient(circle, rgba(0,0,0,0.15) 15%, transparent 16%), 
-                url('https://upload.wikimedia.org/wikipedia/commons/0/07/COLLECTIE_TROPENMUSEUM_Een_dorpsfeest_in_de_omgeving_van_de_berg_Arjuna_TMnr_3728-709.jpg');
-            background-size: 3px 3px, cover; background-repeat: repeat, no-repeat; background-position: center;
-            position: relative; font-family: 'Inter', sans-serif;
+            margin: 0; padding: 0; 
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; 
+            background-color: #ffeaf5;
+            background-image: 
+                linear-gradient(45deg, #ffffff 25%, transparent 25%), 
+                linear-gradient(-45deg, #ffffff 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #ffffff 75%), 
+                linear-gradient(-45deg, transparent 75%, #ffffff 75%);
+            background-size: 30px 30px;
+            background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+            font-family: 'Fredoka', sans-serif;
         }
-
-        body::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(242, 242, 242, 0.7); z-index: -1; }
 
         .card { 
-            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); padding: 3.5rem; 
-            border-radius: 24px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); text-align: center; 
-            width: 550px; max-width: 90%; border: 1px solid rgba(255, 255, 255, 0.3); position: relative;
+            background: #ffffff;
+            padding: 2.5rem 1.5rem; 
+            border-radius: 40px; 
+            border: 5px solid #ffb3d9;
+            box-shadow: 10px 10px 0px #ff85c1;
+            text-align: center; 
+            width: 450px; 
+            max-width: 90%; 
             box-sizing: border-box;
         }
 
-        .ulir { position: absolute; width: 60px; height: 60px; color: #b0b0b0; opacity: 0.5; }
-        .top-left { top: 15px; left: 15px; border-top: 2px solid; border-left: 2px solid; border-radius: 40px 0 0 0; }
-        .top-right { top: 15px; right: 15px; border-top: 2px solid; border-right: 2px solid; border-radius: 0 40px 0 0; }
-        .bottom-left { bottom: 15px; left: 15px; border-bottom: 2px solid; border-left: 2px solid; border-radius: 0 0 0 40px; }
-        .bottom-right { bottom: 15px; right: 15px; border-bottom: 2px solid; border-right: 2px solid; border-radius: 0 0 40px 0; }
+        h2 { 
+            font-family: 'Chewy', cursive;
+            color: #ff47a6;
+            margin: 0 0 0.5rem 0; 
+            font-size: clamp(2rem, 8vw, 2.8rem);
+            text-shadow: 2px 2px 0px #fff, 4px 4px 0px #ffe0f0;
+        }
 
-        h2 { font-weight: 800; color: #111827; margin-bottom: 0.75rem; font-size: 1.75rem; letter-spacing: -0.025em; }
+        .description-en { 
+            font-family: 'Inter', sans-serif;
+            color: #ff85c1; 
+            font-size: 0.85rem; 
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
 
-        .description-en { color: #6b7280; font-size: 0.95rem; line-height: 1.5; margin-bottom: 3rem; }
+        #result-container {
+            /* KUNCI STABILITAS: Tinggi box hasil dikunci */
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff9fc; 
+            border: 3px dashed #ffb3d9;
+            border-radius: 25px;
+            margin: 1rem 0;
+            padding: 10px;
+            overflow: hidden;
+        }
 
         #result { 
-            font-size: 1.8rem; font-weight: 700; color: #000; margin: 2rem 0; padding: 2.5rem 1rem;
-            background: rgba(0,0,0,0.03); border-radius: 16px; letter-spacing: -0.02em;
-            word-wrap: break-word; min-height: 5rem; 
-            display: flex; align-items: center; justify-content: center; 
-            border: 1px solid rgba(0,0,0,0.05);
-            width: 100%; 
-            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700; 
+            color: #ff47a6; 
+            width: 100%;
+            /* Font awal besar, akan mengecil via JS jika kepanjangan */
+            font-size: 1.6rem;
+            line-height: 1.2;
+            word-wrap: break-word;
+            transition: font-size 0.2s ease;
         }
 
         button { 
-            background: #111827; color: white; border: none; padding: 1rem 2.5rem; 
-            border-radius: 12px; cursor: pointer; font-size: 1rem; font-weight: 600;
-            transition: all 0.2s; width: 100%; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: #ff47a6; 
+            color: #fff; 
+            border: 3px solid #b81d6d; 
+            padding: 1rem; 
+            border-radius: 100px;
+            cursor: pointer; 
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.1rem; 
+            font-weight: 600;
+            width: 100%; 
+            box-shadow: 0px 6px 0px #b81d6d;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            transition: all 0.1s;
         }
 
-        button:hover { background: #374151; transform: translateY(-1px); }
+        button:active {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
 
-        .footer-note { margin-top: 2.5rem; font-size: 0.75rem; color: #9ca3af; text-transform: uppercase; font-weight: 600; }
-        .footer-note a { color: #4b5563; text-decoration: none; }
+        .footer-note { 
+            margin-top: 2rem; 
+            font-size: 0.75rem; 
+            color: #ff85c1; 
+            font-weight: 700;
+        }
 
-        @media (max-width: 600px) {
-            .card { padding: 2rem 1.5rem; }
-            h2 { font-size: 1.4rem; }
-            #result { font-size: 1.3rem; padding: 2rem 0.5rem; }
+        .footer-note a { 
+            color: #ff47a6; 
+            text-decoration: none;
+            background: #fff0f7;
+            padding: 2px 6px;
+            border-radius: 8px;
+            border: 1px solid #ffb3d9;
         }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <div class="ulir top-left"></div><div class="ulir top-right"></div>
-    <div class="ulir bottom-left"></div><div class="ulir bottom-right"></div>
-
     <h2>Panganggit Jeneng</h2>
-    <div class="description-en">Generate Javanese family names with Sandhisutro variations.</div>
+    <div class="description-en">Generate Javanese family names. Sugeng njajal!</div>
     
-    <div id="result">---</div>
+    <div id="result-container">
+        <div id="result">---</div>
+    </div>
     
     <button onclick="generateName()">Generate Name</button>
     
@@ -94,8 +146,6 @@
         let namaAsli = capitalize(d + b);
         let finalDisplay = namaAsli;
 
-        // Logika Sandhisutro (O+A, A+A, A+I)
-        let sandhiTrigger = false;
         let dLast = d.charAt(d.length - 1);
         let bFirst = b.charAt(0);
 
@@ -109,6 +159,15 @@
 
         const resultDiv = document.getElementById("result");
         resultDiv.innerText = finalDisplay;
+
+        // ADJUST FONT SIZE BASED ON LENGTH
+        if (finalDisplay.length > 25) {
+            resultDiv.style.fontSize = "1.1rem";
+        } else if (finalDisplay.length > 15) {
+            resultDiv.style.fontSize = "1.3rem";
+        } else {
+            resultDiv.style.fontSize = "1.6rem";
+        }
     }
 </script>
 
